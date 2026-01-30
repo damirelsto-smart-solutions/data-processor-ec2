@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 import pymysql
 from pydantic import BaseModel
 import json
+import datetime
 
 app = FastAPI()
 
@@ -15,12 +16,12 @@ db_config = {
 }
 
 class RobotEventRequest(BaseModel):
-    event_date: str
-    event_time: str
+    event_date: datetime.date
+    event_time: datetime.time
     kpi_name: str
     kpi_value: int
     kpi_explanation: str
-    robot_id: str
+    robot_id: int
 
 @app.post("/log-robot-event")
 async def log_robot_event(request: RobotEventRequest):
