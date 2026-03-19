@@ -80,7 +80,7 @@ async def log_robot_event(request: Union[RobotEvent, RobotEventRequest]):
         
 
 @app.put("/update-robot-event")
-async def log_robot_event(request: Union[RobotEventUpdate, RobotEventUpdateRequest]):
+async def update_robot_event(request: RobotEventUpdateRequest):
     
     # Normalize input
     if isinstance(request, RobotEventUpdate):
