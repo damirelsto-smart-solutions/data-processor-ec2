@@ -34,7 +34,7 @@ class RobotEventRequest(BaseModel):
     events: List[RobotEvent]
     
 class RobotEventUpdateRequest(BaseModel):
-    events: List[RobotEventRequest]
+    events: List[RobotEventUpdate]
 
 @app.post("/log-robot-event")
 async def log_robot_event(request: Union[RobotEvent, RobotEventRequest]):
